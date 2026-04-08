@@ -6,14 +6,12 @@ const BookDetails = () => {
   const books = useLoaderData();
   // console.log(books);
 
-  const { bookId: bookParamsID } = useParams();
-  // console.log(id, "id");
+  const { bookId } = useParams();
 
-  const expectedBooks = books.find((book) => book.bookParamsID == bookParamsID);
+  const expectedBooks = books.find((book) => book.bookId === parseInt(bookId));
   // console.log(expectedBooks);
 
   const {
-    bookId,
     bookName,
     author,
     image,
@@ -26,8 +24,8 @@ const BookDetails = () => {
     yearOfPublishing,
   } = expectedBooks;
 
-  const { handleMarkRead, storeBooks } = useContext(BookContext);
-console.log(handleMarkRead, storeBooks, "Book-Context");
+  const { handleMarkRead, handleWishList } = useContext(BookContext);
+// console.log(handleMarkRead, handleWishList, "Book-Context");
 
 
   
@@ -73,7 +71,7 @@ console.log(handleMarkRead, storeBooks, "Book-Context");
 
             <div className=" flex items-center gap-2">
               <button className="btn " onClick={ ()=>handleMarkRead(expectedBooks)}> Mark as Read</button>
-              <button className="btn btn-primary">Add to WishList</button>
+              <button className="btn btn-primary" onClick={()=> handleWishList(expectedBooks)}>Add to WishList</button>
             </div>
           </div>
         </div>

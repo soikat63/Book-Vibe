@@ -5,12 +5,14 @@ import { RouterProvider } from "react-router/dom";
 import { router } from "./routes/Routes.jsx";
 
 import BookContextProvider from "./components/context/BookContextProvider.jsx";
+import { ToastContainer } from "react-toastify";
 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BookContextProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </BookContextProvider>
   </StrictMode>,
 );

@@ -5,10 +5,13 @@ const Books = () => {
 
 
   const { storeBooks, wishList } = useContext(BookContext);
-  // console.log( storeBooks, wishList, "Book-Context");
+  console.log( storeBooks, wishList, "Book-Context");
 
   return (
-    <div>Books</div>
+    <div>Books
+
+      
+    </div>
   )
 }
 
